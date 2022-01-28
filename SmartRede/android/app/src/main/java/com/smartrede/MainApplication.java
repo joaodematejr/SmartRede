@@ -11,8 +11,12 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import rede.smartrede.sdk.RedePayments;
+
 
 public class MainApplication extends Application implements ReactApplication {
+
+    private RedePayments redePayments;
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
@@ -48,6 +52,7 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    redePayments = RedePayments.getInstance(this);
   }
 
   /**

@@ -1,5 +1,11 @@
 import React from 'react';
-import {Button} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 
 import {NativeModules} from 'react-native';
 
@@ -8,14 +14,39 @@ function App() {
     NativeModules.Device.getDeviceName((err, name) => console.log(err, name));
   }
 
+  function teste() {
+    NativeModules.Device.show('tesre');
+  }
+
   return (
-    <Button
-      onPress={() => callAlert()}
-      title="Learn More"
-      color="#841584"
-      accessibilityLabel="Learn more about this purple button"
-    />
+    <ScrollView style={styles.scrollView}>
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={() => callAlert()}>
+          <Text>Teste</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={() => teste()}>
+          <Text>Aperte aqui</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 15,
+  },
+  scrollView: {
+    marginHorizontal: 20,
+  },
+});
 
 export default App;
