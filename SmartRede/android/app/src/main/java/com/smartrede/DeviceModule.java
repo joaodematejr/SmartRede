@@ -8,6 +8,8 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
+import rede.smartrede.sdk.RedePayments;
+
 public class DeviceModule extends ReactContextBaseJavaModule {
    //constructor
    public DeviceModule(ReactApplicationContext reactContext) {
@@ -34,5 +36,11 @@ public class DeviceModule extends ReactContextBaseJavaModule {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
 
-    
+    @ReactMethod
+    public void pagament(String text) {
+        Context context = getReactApplicationContext();
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+    }
+
+
 }
